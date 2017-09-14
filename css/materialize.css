@@ -2344,7 +2344,8 @@ td, th {
 
 .secondary-content {
   float: right;
-  color: #26a69a; }
+  color: #f44336;
+  }
 
 .collapsible .collection {
   margin: 0;
