@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>gRecipes</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen" />
+</head>
+
+<body>
+
+    <div class="navbar-fixed">
+        <!-- Dropdown Structure -->
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#!">Recipes</a></li>
+            <li><a href="#!">Reviews</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">Ingredients</a></li>
+        </ul>
+        <nav class="grey darken-3" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="#" class="brand-logo">gRecipes</a>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+
+                <form class="right hide-on-med-and-down l6 ">
+                    <div class=" input-field">
+                        <input id="search" type="search" required>
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </form>
+                <ul class="right hide-on-med-and-down">
+                    <!-- Dropdown Trigger -->
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">HOME<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a href=""><i class="material-icons">notifications</i></a></li>
+                    <li><a href=""><i class="material-icons">star</i></a></li>
+                    <li><a href=""><i class="material-icons">account_circle</i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <ul id="nav-mobile" class="side-nav">
+        <li><a href="#calculate">Recipes</a></li>
+        <li><a href="#build">Reviews</a></li>
+        <li><a href="#search">Ingredients</a></li>
+    </ul>
+
+
+    <main role="main" class="main">
+        <div class="container">
+            <section class="section_review-form">
+                <div class="row">
+                    <h2>Edit Review</h2>
+                    <legend>Review Form</legend>
+                    <form class="col s12">
+                        <fieldset>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input placeholder="Richard" id="icon_prefix" type="text" class="validate">
+                                    <label for="icon_prefix">First Name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input placeholder="Johnstone" id="icon_prefix" type="text" class="validate">
+                                    <label for="icon_prefix">Last Name</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12 m8">
+                                    <i class="material-icons">rate_review</i>
+                                    <textarea id="icon_prefix" class="materialize-textarea"></textarea>
+                                    <label for="icon_prefix"></label>
+
+                                </div>
+                                <div class="input-field col s12 m4">
+                                    <h5><i class="material-icons ">stars</i></h5>
+                                    <p>
+                                        <input name="group1" type="radio" id="test1" />
+                                        <label for="test1"><i class="material-icons">star</i></label>
+                                    </p>
+                                    <p>
+                                        <input name="group1" type="radio" id="test2" />
+                                        <label for="test2"><i class="material-icons">star</i>
+                                    <i class="material-icons">star</i></label>
+                                    </p>
+                                    <p>
+                                        <input class="with-gap" name="group1" type="radio" id="test3" />
+                                        <label for="test3"><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i></label>
+                                    </p>
+                                    <p>
+                                        <input name="group1" type="radio" id="test4" />
+                                        <label for="test4"><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i></label>
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12 m6  ">
+                                    <button class=" btn waves-effect waves-light " type="submit " name="action ">Submit
+                                    <i class="material-icons right ">send</i>
+                                </button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+    <div class="icon-block ">
+        <h2 class="center  light-blue-text "><i class="material-icons large">info</i></h2>
+
+    </div>
+    <footer class="page-footer light-blue darken-3 ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col l6 s12 ">
+                    <h5 class="white-text ">About gRecipes</h5>
+                    <p class="grey-text text-lighten-4 ">A solo project by K. Anderson. This prototype application will be pitched and modified per customer request to integrate into coachkandfenway.com.</p>
+                </div>
+
+                <div class="col l3 s12 ">
+                    <h5 class="white-text ">Connect</h5>
+                    <ul>
+                        <li><a class="white-text btn-floating " href="mailto:kevin.m.anderson@icloud.com "><i class="material-icons ">email</i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright ">
+            <div class="container ">
+                <p>
+                    Made by K. Anderson, All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
+    <script src="js/bin/materialize.js "></script>
+    <script src="script.js "></script>
+
+</body>
+
+</html>
