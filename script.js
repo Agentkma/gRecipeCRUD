@@ -101,7 +101,7 @@
                 crossDomain: true,
                 success: function ( response ) {
                     ///show thank you message div & hide order form
-                    response( alert( 'success' ) );
+                    response( alert( response ) );
                 }
             } );
 
