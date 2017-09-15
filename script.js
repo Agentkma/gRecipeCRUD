@@ -54,7 +54,6 @@
             createReviewData.text = $createReviewText.val();
             createReviewData.user_name = $createReviewName.val();
             createReviewData.recipe_id = $recipePageRecipe.attr( 'data-recipeId' );
-            createReviewData = JSON.stringify( createReviewData );
         }
 
         // Creat object from form inputs to match DB RECIPE table columns
