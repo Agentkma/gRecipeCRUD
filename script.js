@@ -53,6 +53,7 @@
             type: "POST",
             url: `${dbUrl}review/createReview`,
             data: createReviewData,
+            crossDomain: true,
             success: function ( response ) {
                 ///show thank you message div & hide order form
                 response(alert('success'));
