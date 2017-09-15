@@ -58,24 +58,24 @@
                 <article>
                     <div class="row">
                         <h2 class="center-align">Create a Recipe!</h2>
-                        <form class="col s12">
+                        <form id="addRecipeForm" class="col s12">
                             <fieldset>
                                 <h5>Basic Info</h5>
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <input placeholder="New Recipe Name" id="title" type="text" class="validate">
-                                        <label for="title">Title</label>
+                                        <input placeholder="New Recipe Name" id="addRecipeTitle" type="text" class="validate">
+                                        <label for="addRecipeTitle">Title</label>
                                     </div>
                                     <div class="input-field col s6">
-                                        <input placeholder="John Doe" id="name" type="text" class="validate">
-                                        <label for="name">Author</label>
+                                        <input placeholder="John Doe" id="addRecipeName" type="text" class="validate">
+                                        <label for="addRecipeName">Author</label>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <textarea placeholder="Description" id="textarea1" class="materialize-textarea"></textarea>
-                                        <label for="textarea1"></label>
+                                        <textarea placeholder="Description" id="addRecipeText" class="materialize-textarea"></textarea>
+                                        <label for="addRecipeText"></label>
                                     </div>
                                 </div>
 
@@ -87,7 +87,7 @@
                                                 <input type="file">
                                             </div>
                                             <div class="file-path-wrapper">
-                                                <input placeholder="upload pic" class="file-path validate" type="text">
+                                                <input id="addRecipeFile" placeholder="upload pic" class="file-path validate" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -96,30 +96,30 @@
 
                             <fieldset>
                                 <h5>Ingredients</h5>
-                                <div class="row">
+                                <div class="row" id="addRecipeIngredDiv">
                                     <div class="input-field col s12">
-                                        <input placeholder="add ingredient" id="ingredient" type="text" class="validate">
-                                        <label for="ingredient">Ingredient</label>
+                                        <input id="addRecipeIngredient" placeholder="add ingredient" type="text" class="validate addRecipeIngredient">
+                                        <label for="addRecipeIngredient">Ingredient</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <a class="waves-effect waves-light btn"><i class="material-icons left"><i class="material-icons">add</i></i>Add </a>
+                                        <a id="addRecipeIngredientInput" class="waves-effect waves-light btn"><i class="material-icons left"><i class="material-icons">add</i></i>Add </a>
                                     </div>
                                 </div>
                             </fieldset>
 
                             <fieldset>
                                 <h5>Directions</h5>
-                                <div class="row">
+                                <div class="row" id="addRecipeStepDiv">
                                     <div class="input-field col s12">
-                                        <input placeholder="add step" id="step" type="text" class="validate">
-                                        <label for="step">Step</label>
+                                        <input placeholder="add step" id="addRecipeStep" type="text" class="validate addRecipeStep">
+                                        <label for="addRecipeStep">Step</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <a class="waves-effect waves-light btn"><i class="material-icons left"><i class="material-icons">playlist_add</i></i>Add</a>
+                                        <a id="addRecipeStepInput" class="waves-effect waves-light btn"><i class="material-icons left"><i class="material-icons">playlist_add</i></i>Add</a>
                                     </div>
                                 </div>
                             </fieldset>
