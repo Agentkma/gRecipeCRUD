@@ -51,11 +51,11 @@
 
         $.ajax( {
             type: "POST",
-            url: `${dbUrl}review/createReview/`,
+            url: `${dbUrl}review/createReview`,
             data: createReviewData,
             success: function ( response ) {
                 ///show thank you message div & hide order form
-                response(alert('succes'));
+                response(alert('success'));
             }
         } );
 
