@@ -36,8 +36,8 @@
     function createReviewDataObjForDB () {
             createReviewData.rating =$('input[name=rating]:checked').val();
             createReviewData.text= $createReviewText.val();
-            createReviewData.userName= $createReviewName.val();
-            createReviewData.recipeId = $recipePageRecipe.attr('data-recipeId');
+            createReviewData.user_name= $createReviewName.val();
+            createReviewData.recipe_id = $recipePageRecipe.attr('data-recipeId');
             createReviewData = JSON.stringify(createReviewData);
             console.log(createReviewData);
         }
