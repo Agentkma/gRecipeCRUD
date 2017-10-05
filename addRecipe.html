@@ -95,11 +95,43 @@
                             </fieldset>
 
                             <fieldset>
-                                <h5>Ingredients</h5>
-                                <div class="row" id="addRecipeIngredDiv">
-                                    <div class="input-field col s12">
-                                        <input id="addRecipeIngredient" placeholder="add ingredient" type="text" class="validate addRecipeIngredient">
-                                        <label for="addRecipeIngredient">Ingredient</label>
+                                <h5>Steps</h5>
+                                <div id="addStepDiv">
+                                    <div class="row addEachStepDiv">
+                                        <div class="stepTags">
+                                            <div class="chip light-blue">
+                                                <i class="close">1</i>
+                                            </div>
+                                            <div class="chip red">
+                                                <i class="close material-icons">delete</i>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-field col s12">
+                                            <input placeholder="add step" id="addRecipeStep" type="text" class="validate addRecipeStep">
+                                            <label for="addRecipeStep">Step</label>
+                                        </div>
+
+                                        <div class="input-field col s12 m6">
+                                            <input id="addRecipeIngredient" placeholder="add ingredient" type="text" class="validate addRecipeIngredient">
+                                            <label for="addRecipeIngredient">Ingredient</label>
+                                        </div>
+                                        <div class="input-field col s12 m2">
+                                            <input placeholder="add quantity" type="number" class="validate addRecipeQuantity">
+                                            <label for="addRecipeQuanity">Quantity</label>
+                                        </div>
+                                        <div class="input-field col s12 m4">
+                                            <select id="addRecipeUnit">
+                                        <option value="" disabled selected>Choose your option</option>
+                                        <option value="1">Ounces</option>
+                                        <option value="2">Lbs</option>
+                                        <option value="3">Ts</option>
+                                        <option value="4">Tbls</option>
+                                        <option value="5">Cups</option>
+                                        <option value="6">Quarts</option>
+                                      </select>
+                                            <label>Select Unit</label>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -109,20 +141,6 @@
                                 </div>
                             </fieldset>
 
-                            <fieldset>
-                                <h5>Directions</h5>
-                                <div class="row" id="addRecipeStepDiv">
-                                    <div class="input-field col s12">
-                                        <input placeholder="add step" id="addRecipeStep" type="text" class="validate addRecipeStep">
-                                        <label for="addRecipeStep">Step</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <a id="addRecipeStepInput" class="waves-effect waves-light btn"><i class="material-icons left"><i class="material-icons">playlist_add</i></i>Add</a>
-                                    </div>
-                                </div>
-                            </fieldset>
                             <div class="row">
                                 <div class="input-field col s12">
                                     <button class="btn waves-effect waves-light right" type="submit" name="action">Submit

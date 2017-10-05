@@ -60,7 +60,7 @@
                             <br><br>
                             <h1 class="header center light-blue-text">gRecipes</h1>
                             <div class="row center">
-                                <h5 id="callToAction" class="header col s12 light white-text ">Under Construction.</h5>
+                                <h5 id="callToAction" class="header col s12 light white-text ">Find. Create. Review.</h5>
                             </div>
                             <div class="row center">
                                 <span id="download-button" class="btn-large waves-effect red">Get Started</span>
@@ -132,77 +132,8 @@
 
 
             <section>
-                <div class="row">
-                    <article>
-                        <div class="col s12 m4">
-                            <div class="card large">
-                                <div class="card-image">
-                                    <img src="img/beefRibs.jpeg">
-                                    <span class="card-title">Recipe Name</span>
-                                </div>
-                                <div class="starRating">
-                                    <i class="material-icons">star</i>
-                                    <i class="material-icons">star</i>
-                                </div>
-                                <div>
-                                    <div class="card-content">
-                                        <p>I am a very delicious meal....learn about how to make me. I am a very delicious meal....learn about how to make me.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <a href="recipe.html" class="waves-effect waves-light btn right"><i class="material-icons left"><i class="material-icons">remove_red_eye</i></i>recipe</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article>
-                        <div class="col s12 m4">
-                            <div class="card large">
-                                <div class="card-image">
-                                    <img src="img/beefRibs.jpeg">
-                                    <span class="card-title">Recipe Name</span>
-                                </div>
-                                <div class="starRating">
-                                    <i class="material-icons">star</i>
-                                    <i class="material-icons">star</i>
-                                </div>
-                                <div>
-                                    <div class="card-content">
-                                        <p>I am a very delicious meal....learn about how to make me. I am a very delicious meal....learn about how to make me.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <a href="recipe.html" class="waves-effect waves-light btn right"><i class="material-icons left"><i class="material-icons">remove_red_eye</i></i>recipe</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </article>
-
-                    <article>
-                        <div class="col s12 m4">
-                            <div class="card large">
-                                <div class="card-image">
-                                    <img src="img/beefRibs.jpeg">
-                                    <span class="card-title">Recipe Name</span>
-                                </div>
-                                <div class="starRating">
-                                    <i class="material-icons">star</i>
-                                    <i class="material-icons">star</i>
-                                </div>
-                                <div>
-                                    <div class="card-content">
-                                        <p>I am a very delicious meal....learn about how to make me. I am a very delicious meal....learn about how to make me.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <a href="recipe.html" class="waves-effect waves-light btn right"><i class="material-icons left"><i class="material-icons">remove_red_eye</i></i>recipe</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </article>
+                <div id="indexRecipes" class="row">
+                    <!-- Recipes created dynamically from DB..uses index recipe templat script at bottom of this file -->
                 </div>
             </section>
 
@@ -249,7 +180,36 @@
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
     <script src="js/bin/materialize.js "></script>
-    <script src="script.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+    <script id="recipeIndexTemplate" type="text/x-handlebars-template">
+        {{#each recipe}}
+        <article>
+            <div class="col s12 m4">
+                <div class="card large">
+                    <div class="card-image">
+                        <img src="{{recipeImg}}">
+                        <span class="card-title">{{recipeName}}</span>
+                    </div>
+                    <div id="{{recipeId}}" class="starRating">
+                        {{#compare starRating ">=" 1}} <i class="material-icons">star</i> {{/compare}} {{#compare starRating ">=" 2}}<i class="material-icons">star</i> {{/compare}} {{#compare starRating ">=" 3}} <i class="material-icons">star</i> {{/compare}}
+                        {{#compare starRating ">=" 4}}
+                        <i class="material-icons">star</i> {{/compare}}
+                    </div>
+                    <div>
+                        <div class="card-content">
+                            <p>{{recipeDescription}}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="recipe.html" class="waves-effect waves-light btn right"><i class="material-icons left"><i class="material-icons">remove_red_eye</i></i>recipe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        {{/each}}
+    </script>
+    <script src="script.js">
+    </script>
 
 </body>
 
