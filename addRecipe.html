@@ -24,16 +24,9 @@
         </ul>
         <nav class="grey darken-3" role="navigation">
             <div class="nav-wrapper container">
-                <a id="logo-container" href="#" class="brand-logo">gRecipes</a>
+                <a id="logo-container" href="index.html" class="brand-logo">gRecipes</a>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 
-                <!-- <form class="right hide-on-med-and-down l6 ">
-                    <div class=" input-field">
-                        <input id="search" type="search" required>
-                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                        <i class="material-icons">close</i>
-                    </div>
-                </form> -->
                 <ul class="right hide-on-med-and-down">
                     <!-- Dropdown Trigger -->
                     <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">menu</i><i class="material-icons right">arrow_drop_down</i></a></li>
@@ -95,25 +88,17 @@
                             </fieldset>
 
                             <fieldset>
-                                <h5>Steps</h5>
-                                <div id="addStepDiv">
-                                    <div class="row addEachStepDiv">
-                                        <div class="stepTags">
-                                            <div class="chip light-blue">
-                                                <i class="close">1</i>
-                                            </div>
-                                            <div class="chip red">
-                                                <i class="close material-icons">delete</i>
-                                            </div>
-                                        </div>
-
+                                <h5>Ingredients</h5>
+                                <div id="addIngregientDiv">
+                                    <div class="row addEachIngDiv">
                                         <div class="input-field col s12">
-                                            <input placeholder="add step" id="addRecipeStep" type="text" class="validate addRecipeStep">
-                                            <label for="addRecipeStep">Step</label>
+                                            <div>
+                                                <a><i class="close material-icons">delete</i></a>
+                                            </div>
                                         </div>
 
                                         <div class="input-field col s12 m6">
-                                            <input id="addRecipeIngredient" placeholder="add ingredient" type="text" class="validate addRecipeIngredient">
+                                            <input id="addRecipeIngredient" placeholder="add ingredient name" type="text" class="validate addRecipeIngredient">
                                             <label for="addRecipeIngredient">Ingredient</label>
                                         </div>
                                         <div class="input-field col s12 m2">
@@ -122,21 +107,49 @@
                                         </div>
                                         <div class="input-field col s12 m4">
                                             <select id="addRecipeUnit">
-                                        <option value="" disabled selected>Choose your option</option>
-                                        <option value="1">Ounces</option>
-                                        <option value="2">Lbs</option>
-                                        <option value="3">Ts</option>
-                                        <option value="4">Tbls</option>
-                                        <option value="5">Cups</option>
-                                        <option value="6">Quarts</option>
-                                      </select>
+                                                <option value="" disabled selected>Select Unit</option>
+                                                <option value="1">Ounces</option>
+                                                <option value="2">Lbs</option>
+                                                <option value="3">Ts</option>
+                                                <option value="4">Tbls</option>
+                                                <option value="5">Cups</option>
+                                                <option value="6">Quarts</option>
+                                            </select>
                                             <label>Select Unit</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <a id="addRecipeIngredientInput" class="waves-effect waves-light btn"><i class="material-icons left"><i class="material-icons">add</i></i>Add </a>
+                                        <a id="addRecipeIngBtn" class="waves-effect waves-light btn"><i class="material-icons left"><i class="material-icons">add</i></i>Add</a>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <h5>Steps</h5>
+                                <div id="addStepDiv">
+                                    <div class="row addEachStepDiv">
+
+                                        <div class="input-field col s12">
+                                            <div>
+                                                <a><i class="close material-icons">delete</i></a>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-field col s12 m2">
+                                            <input id="addStepOrder" placeholder="add step" type="number" min="1" max="30" class="validate addStepOrder">
+                                            <label for="addStepOrder">Step Order</label>
+                                        </div>
+                                        <div class="input-field col s12 m10">
+                                            <input placeholder="add description" type="text" class="validate addStepDescriction">
+                                            <label for="addStepDescriction">Description</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <a id="addRecipeStepInput" class="waves-effect waves-light btn"><i class="material-icons left"><i class="material-icons">add</i></i>Add </a>
                                     </div>
                                 </div>
                             </fieldset>
@@ -185,9 +198,42 @@
     </footer>
 
     <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
-    <script src="js/bin/materialize.js "></script>
-    <script src="script.js "></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/bin/materialize.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+    <script id="addRecipeTemplate" type="text/x-handlebars-template">
+
+        <div class="row addEachIngDiv">
+            <div class="input-field col s12">
+                <div>
+                    <a><i class="close material-icons">delete</i></a>
+                </div>
+            </div>
+
+            <div class="input-field col s12 m6">
+                <input id="addRecipeIngredient{{id}}" placeholder="add ingredient name" type="text" class="validate addRecipeIngredient">
+                <label for="addRecipeIngredient{{id}}">Ingredient</label>
+            </div>
+            <div class="input-field col s12 m2">
+                <input placeholder="add quantity" type="number" class="validate addRecipeQuantity">
+                <label for="addRecipeQuanity">Quantity</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <select id="addRecipeUnit{{id}}">
+                    <option value="" disabled selected>Select Unit</option>
+                    <option value="1">Ounces</option>
+                    <option value="2">Lbs</option>
+                    <option value="3">Ts</option>
+                    <option value="4">Tbls</option>
+                    <option value="5">Cups</option>
+                    <option value="6">Quarts</option>
+                </select>
+                <label>Select Unit</label>
+            </div>
+        </div>
+
+    </script>
+    <script src="js-custom/addRecipe.js"></script>
 
 </body>
 
