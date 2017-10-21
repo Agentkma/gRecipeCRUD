@@ -1,7 +1,8 @@
-"use strict";
+
 // ( function ( $ ) {
 
 $(document).ready(function() {
+	"use strict";
 	/* MATERIALIZE UTILITIES  *****************************************************************************************************************************************************/
 
 	$(".button-collapse").sideNav({
@@ -20,52 +21,58 @@ $(document).ready(function() {
 	const $addRecipeName = $("#addRecipeName");
 	const $addRecipeText = $("#addRecipeText");
 	const $addRecipeFile = $("#addRecipeFile");
+	const $addIngredientDiv = $("#addIngredientDiv");
+	const $addIngBtn = $("#addIngBtn");
+	const $createNewIngredient = $(".createNewIngredient");
 	const $addStepDiv = $("#addStepDiv");
+	const $addStepBtn = $(".addStepBtn");
 	const $childrenAddStepDiv = $("#addStepDiv > .addEachStepDiv");
 	const $addEachStepDiv = $(".addEachStepDiv");
-	const $addRecipeIngBtn = $("#addRecipeIngBtn");
-	const $addRecipeIngredient = $(".addRecipeIngredient");
-	const $addStepBtn = $(".addStepBtn");
-	const $addIngredientDiv = $("#addIngredientDiv");
 	const $addRecipeStep = $("#addRecipeStep");
 	const $addRecipeStepInput = $("#addRecipeStepInput");
 	const $addRecipeStepDiv = $("#addRecipeStepDiv");
+
 	let $deleteItem = $(".close");
-
-	const addRecipeDataObj = {
-		title: $addRecipeTitle.val(),
-		recipeDescription: $addRecipeText.val(),
-		// TODO need to find the google service that will turn pic file uploads to urls
-		file: $addRecipeFile.val(),
-		personName: $addRecipeName.val(),
-		ingredients: getAllIngredients()
-	};
-
 	let createRecipeData = {};
 
 	/* FUNCTIONS  *****************************************************************************************************************************************************/
 
 	function getAllIngredients() {
 		let $allIngredientElements = $addIngredientDiv.find(
-			".addRecipeIngredient"
+			".addEachIngDiv"
 		);
-
 		let allIngredients = Array.prototype.map.call(
 			$allIngredientElements,
 			input => {
-				// TODO CHANGE SO EACH ingredient has name, unit, amount
 				return {
-					ingredientName: input.value,
-					unit: "",
-					amount: ""
+					ingredientName: $(input).find('.addIngName').val(),
+					unit: $(input).find('.addIngUnit :selected').val(),
+					amount: $(input).find('.addIngQty').val(),
 				};
 			}
 		);
+
 		return allIngredients;
 	}
 
-	// HANDLEBAR
-	function addRecipeIng() {
+	function getAllSteps ( ){
+		let $allStepElements = $addStepDiv.find(
+			".addEachStepDiv"
+		);
+		let allSteps = Array.prototype.map.call($allStepElements, input => {
+			return {
+				steps: {
+					order: $(input).find('.addStepOrder').val(),
+					stepDescription: $(input).find('.addStepDescription').val(),
+				}
+			};
+		});
+		return allSteps;
+	}
+
+
+	// add Ingredient Input to Form
+	function createNewIng() {
 		//grab template
 		const source = $("#addIngTemplate").html();
 		//ready handlebars...by loading source/template
@@ -79,7 +86,7 @@ $(document).ready(function() {
 		$("select").material_select();
 	}
 
-	// Create Step input group/row
+	// add Step Input to Form
 	function createNewStep() {
 		//grab template
 		const source = $("#addStepTemplate").html();
@@ -96,45 +103,32 @@ $(document).ready(function() {
 
 	// Create object from form inputs to match DB RECIPE table columns
 	function createRecipeObject() {
-		//TODO NEED to get quantites to match ingreidents..
-		// { ingredient: 'beef',
-		// quantity : {
-		//     unit : lbs,
-		//     amount: 2
-		// }}
-		// createRecipeData.quantities
 
-		let $allStepElements = $addRecipeStepIngQty.find(
-			".addRecipeIngredient"
-		);
-		// TODO steps need order and description data
-		let allSteps = Array.prototype.map.call($allStepElements, input => {
-			return {
-				steps: {
-					order: input.value,
-					stepDescription: "get data"
-				}
-			};
-		});
-		createRecipeData.steps = allSteps;
+		let addRecipeDataObj = {
+			title: $addRecipeTitle.val(),
+			recipeDescription: $addRecipeText.val(),
+			// TODO need to find the google service that will turn pic file uploads to urls
+			file: $addRecipeFile.val(),
+			personName: $addRecipeName.val(),
+			ingredient: getAllIngredients(),
+			step: getAllSteps(),
 
-		// console.log(createRecipeData);
-		createRecipeData = JSON.stringify(createRecipeData);
+		};
+
+		return createRecipeData = JSON.stringify(addRecipeDataObj);
 	}
 
-	function deleteItem() {
-
-	}
 
 	/* EVENT LISTENERS  *****************************************************************************************************************************************************/
 
 	$addRecipeForm.submit(event => {
 		event.preventDefault();
 		createRecipeObject();
+		//TODO create function to send recipe object to server....still need to fix POST route on server though
 	});
 
-	$addRecipeIngBtn.click(() => {
-		addRecipeIng();
+	$addIngBtn.click(() => {
+		createNewIng();
 		$("select").material_select();
 	});
 
@@ -144,9 +138,8 @@ $(document).ready(function() {
 		$("select").material_select();
 	});
 
-
+	// Remove ingredients or steps on trash can icon click
 	$(document).on('click','.close',function(event) {
-		console.log('Test Click');
 	 $(event.target).closest(".row").remove()
 	});
 

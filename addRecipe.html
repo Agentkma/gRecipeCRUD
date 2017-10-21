@@ -98,30 +98,30 @@
                                         </div>
 
                                         <div class="input-field col s12 m6">
-                                            <input id="addRecipeIngredient" placeholder="add ingredient name" type="text" class="validate addRecipeIngredient">
-                                            <label for="addRecipeIngredient">Ingredient</label>
+                                            <input id="addIngName" placeholder="add ingredient name" type="text" class="addIngName validate">
+                                            <label for="addIngName">Ingredient</label>
                                         </div>
-                                        <div class="input-field col s12 m2">
-                                            <input placeholder="add quantity" type="number" class="validate addRecipeQuantity">
-                                            <label for="addRecipeQuanity">Quantity</label>
+                                        <div class=" input-field col s12 m2">
+                                            <input id="addIngQty" placeholder="add quantity" type="number" class="validate addIngQty">
+                                            <label for="addIngQty">Quantity</label>
                                         </div>
-                                        <div class="input-field col s12 m4">
-                                            <select id="addRecipeUnit">
+                                        <div class=" input-field col s12 m4">
+                                            <select class="addIngUnit" id="addIngUnit">
                                                 <option value="" disabled selected>Select Unit</option>
-                                                <option value="1">Ounces</option>
-                                                <option value="2">Lbs</option>
-                                                <option value="3">Ts</option>
-                                                <option value="4">Tbls</option>
-                                                <option value="5">Cups</option>
-                                                <option value="6">Quarts</option>
+                                                <option value="Ounces">Ounces</option>
+                                                <option value="Lbs">Lbs</option>
+                                                <option value="Ts">Ts</option>
+                                                <option value="Tbls">Tbls</option>
+                                                <option value="Cups">Cups</option>
+                                                <option value="Quarts">Quarts</option>
                                             </select>
                                             <label>Select Unit</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="input-field col s12">
-                                        <a id="addRecipeIngBtn" class="waves-effect waves-light btn"><i class="material-icons left"><i class="material-icons">add</i></i>Add</a>
+                                    <div class=" input-field col s12">
+                                        <a id="addIngBtn" class="waves-effect waves-light btn"><i class="material-icons left"><i class="material-icons">add</i></i>Add</a>
                                     </div>
                                 </div>
                             </fieldset>
@@ -136,12 +136,12 @@
                                             </div>
                                         </div>
 
-                                        <div class="input-field col s12 m2">
+                                        <div class=" input-field col s12 m2">
                                             <input id="addStepOrder" placeholder="add step" type="number" min="1" max="30" class="validate addStepOrder">
                                             <label for="addStepOrder">Step Order</label>
                                         </div>
                                         <div class="input-field col s12 m10">
-                                            <input placeholder="add description" type="text" class="validate addStepDescriction">
+                                            <input id="addStepDescription" placeholder="add description" type="text" class="validate addStepDescription">
                                             <label for="addStepDescriction">Description</label>
                                         </div>
 
@@ -211,22 +211,22 @@
             </div>
 
             <div class="input-field col s12 m6">
-                <input id="addRecipeIngredient{{id}}" placeholder="add ingredient name" type="text" class="validate addRecipeIngredient">
-                <label for="addRecipeIngredient{{id}}">Ingredient</label>
+                <input id="addIngName{{id}}" placeholder="add ingredient name" type="text" class="validate addIngName">
+                <label for="addIngName{{id}}">Ingredient</label>
             </div>
             <div class="input-field col s12 m2">
-                <input placeholder="add quantity" type="number" class="validate addRecipeQuantity">
-                <label for="addRecipeQuanity">Quantity</label>
+                <input id="addIngQty{{id}}" placeholder="add quantity" type="number" class="validate addIngQty">
+                <label for="addIngQty{{id}}">Quantity</label>
             </div>
             <div class="input-field col s12 m4">
-                <select id="addRecipeUnit{{id}}">
+                <select class="addIngUnit"id="addIngUnit{{id}}">
                     <option value="" disabled selected>Select Unit</option>
-                    <option value="1">Ounces</option>
-                    <option value="2">Lbs</option>
-                    <option value="3">Ts</option>
-                    <option value="4">Tbls</option>
-                    <option value="5">Cups</option>
-                    <option value="6">Quarts</option>
+                    <option value="Ounces">Ounces</option>
+                    <option value="Lbs">Lbs</option>
+                    <option value="Ts">Ts</option>
+                    <option value="Tbls">Tbls</option>
+                    <option value="Cups">Cups</option>
+                    <option value="Quarts">Quarts</option>
                 </select>
                 <label>Select Unit</label>
             </div>
@@ -244,12 +244,12 @@
             </div>
 
             <div class="input-field col s12 m2">
-                <input id="addStepOrder" placeholder="add step" type="number" min="1" max="30" class="validate addStepOrder">
-                <label for="addStepOrder">Step Order</label>
+                <input id="addStepOrder{{id}}" placeholder="add step" type="number" min="1" max="30" class="validate addStepOrder">
+                <label for="addStepOrder{{id}}">Step Order</label>
             </div>
             <div class="input-field col s12 m10">
-                <input placeholder="add description" type="text" class="validate addStepDescriction">
-                <label for="addStepDescriction">Description</label>
+                <input id="addStepDescription{{id}}" placeholder="add description" type="text" class="validate addStepDescription">
+                <label for="addStepDescription{{id}}">Description</label>
             </div>
         </div>
     </script>
