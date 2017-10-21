@@ -89,7 +89,7 @@
 
                             <fieldset>
                                 <h5>Ingredients</h5>
-                                <div id="addIngregientDiv">
+                                <div id="addIngredientDiv">
                                     <div class="row addEachIngDiv">
                                         <div class="input-field col s12">
                                             <div>
@@ -149,7 +149,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <a id="addRecipeStepInput" class="waves-effect waves-light btn"><i class="material-icons left"><i class="material-icons">add</i></i>Add </a>
+                                        <a id="addRecipeStepInput" class="addStepBtn waves-effect waves-light btn"><i class="material-icons left"><i class="material-icons">add</i></i>Add </a>
                                     </div>
                                 </div>
                             </fieldset>
@@ -201,7 +201,7 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/bin/materialize.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
-    <script id="addRecipeTemplate" type="text/x-handlebars-template">
+    <script id="addIngTemplate" type="text/x-handlebars-template">
 
         <div class="row addEachIngDiv">
             <div class="input-field col s12">
@@ -232,6 +232,26 @@
             </div>
         </div>
 
+    </script>
+    <script id="addStepTemplate" type="text/x-handlebars-template">
+
+        <div class="row addEachStepDiv">
+
+            <div class="input-field col s12">
+                <div>
+                    <a><i class="close material-icons">delete</i></a>
+                </div>
+            </div>
+
+            <div class="input-field col s12 m2">
+                <input id="addStepOrder" placeholder="add step" type="number" min="1" max="30" class="validate addStepOrder">
+                <label for="addStepOrder">Step Order</label>
+            </div>
+            <div class="input-field col s12 m10">
+                <input placeholder="add description" type="text" class="validate addStepDescriction">
+                <label for="addStepDescriction">Description</label>
+            </div>
+        </div>
     </script>
     <script src="js-custom/addRecipe.js"></script>
 
