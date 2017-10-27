@@ -1678,8 +1678,7 @@ template {
  * Remove the gray background color from active links in IE 10.
  */
 a {
-  background-color: transparent;
-  }
+  background-color: transparent; }
 
 /**
  * Improve readability of focused elements when they are also in an
@@ -1971,8 +1970,7 @@ ul:not(.browser-default) {
 a {
   color: #039be5;
   text-decoration: none;
-  -webkit-tap-highlight-color: transparent;
-  }
+  -webkit-tap-highlight-color: transparent; }
 
 .valign-wrapper {
   display: flex;
@@ -2344,8 +2342,7 @@ td, th {
 
 .secondary-content {
   float: right;
-  color: #f44336;
-  }
+  color: #26a69a; }
 
 .collapsible .collection {
   margin: 0;
@@ -2709,10 +2706,7 @@ nav ul a span.badge {
         width: 50%;
         margin-left: auto;
         left: auto;
-        right: auto;
-        height: 100%;
-        bottom: 1rem;
-        }
+        right: auto; }
       .row .col.m7 {
         width: 58.3333333333%;
         margin-left: auto;
@@ -3245,8 +3239,7 @@ html {
   line-height: 1.5;
   font-family: "Roboto", sans-serif;
   font-weight: normal;
-  /* color: rgba(0, 0, 0, 0.87); */
-  }
+  color: rgba(0, 0, 0, 0.87); }
   @media only screen and (min-width: 0) {
     html {
       font-size: 14px; } }
@@ -3485,16 +3478,14 @@ small {
     position: relative;
     background-color: inherit;
     border-top: 1px solid rgba(160, 160, 160, 0.2);
-    padding: 16px 24px;
-    }
+    padding: 16px 24px; }
     .card .card-action:last-child {
       border-radius: 0 0 2px 2px; }
     .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
-      color: #03a9f4;
+      color: #ffab40;
       margin-right: 24px;
       transition: color .3s ease;
-      text-transform: uppercase;
-      }
+      text-transform: uppercase; }
       .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
         color: #ffd8a6; }
   .card .card-reveal {
@@ -3659,14 +3650,13 @@ small {
 .btn-flat {
   border: none;
   border-radius: 2px;
-  /* display: inline-block; */
+  display: inline-block;
   height: 36px;
   line-height: 36px;
   padding: 0 2rem;
   text-transform: uppercase;
   vertical-align: middle;
-  -webkit-tap-highlight-color: transparent;
-  }
+  -webkit-tap-highlight-color: transparent; }
 
 .btn.disabled, .disabled.btn-large,
 .btn-floating.disabled,
@@ -3709,9 +3699,7 @@ small {
 .btn-large,
 .btn-flat {
   font-size: 1rem;
-  outline: 0;
-  /* color: #fff !important; */
-  }
+  outline: 0; }
   .btn i, .btn-large i,
   .btn-floating i,
   .btn-large i,
@@ -3725,16 +3713,14 @@ small {
 
 .btn, .btn-large {
   text-decoration: none;
-  color: #fff !important;
-  background-color: #f44336 !important;
+  color: #fff;
+  background-color: #26a69a;
   text-align: center;
   letter-spacing: .5px;
   transition: .2s ease-out;
-  cursor: pointer;
-  }
+  cursor: pointer; }
   .btn:hover, .btn-large:hover {
-    background-color: #f44336 !important;
-    }
+    background-color: #2bbbad; }
 
 .btn-floating {
   display: inline-block;
@@ -3746,12 +3732,11 @@ small {
   height: 40px;
   line-height: 40px;
   padding: 0;
-  background-color: #f44336;
+  background-color: #26a69a;
   border-radius: 50%;
   transition: .3s;
   cursor: pointer;
-  vertical-align: middle;
-  }
+  vertical-align: middle; }
   .btn-floating:hover {
     background-color: #26a69a; }
   .btn-floating:before {
@@ -3909,11 +3894,10 @@ button.btn-floating {
       height: 1px; }
     .dropdown-content li > a, .dropdown-content li > span {
       font-size: 16px;
-      color: #03a9f4 !important;
+      color: #26a69a;
       display: block;
       line-height: 22px;
-      padding: 14px 16px;
-      }
+      padding: 14px 16px; }
     .dropdown-content li > span > label {
       top: 1px;
       left: 0;
@@ -3947,8 +3931,7 @@ button.btn-floating {
   -webkit-tap-highlight-color: transparent;
   vertical-align: middle;
   z-index: 1;
-  transition: .3s ease-out;
-  }
+  transition: .3s ease-out; }
   .waves-effect .waves-ripple {
     position: absolute;
     border-radius: 50%;
@@ -4587,9 +4570,8 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
   transition: .2s opacity ease-out, .2s color ease-out; }
 
 .input-field {
-  position: re;
-  margin-top: 1rem;
-  }
+  position: relative;
+  margin-top: 1rem; }
   .input-field.inline {
     display: inline-block;
     vertical-align: middle;
@@ -4603,7 +4585,7 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
   .input-field.col .prefix ~ .validate ~ label {
     width: calc(100% - 3rem - 1.5rem); }
   .input-field label {
-    color: rgba(0, 0, 0, 0.87);
+    color: #9e9e9e;
     position: absolute;
     top: 0;
     left: 0;
@@ -4614,8 +4596,7 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
     transform-origin: 0% 100%;
     text-align: initial;
     transform: translateY(12px);
-    pointer-events: none;
-    }
+    pointer-events: none; }
     .input-field label:not(.label-icon).active {
       transform: translateY(-14px) scale(0.8);
       transform-origin: 0 0; }
@@ -4723,8 +4704,7 @@ textarea {
 [type="radio"]:checked {
   position: absolute;
   opacity: 0;
-  pointer-events: none;
-  }
+  pointer-events: none; }
 
 [type="radio"]:not(:checked) + label,
 [type="radio"]:checked + label {
@@ -5054,7 +5034,7 @@ select {
   height: 0;
   top: 0;
   left: 0;
-  }
+  opacity: 0; }
 
 .select-label {
   position: absolute; }
@@ -6858,5 +6838,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 header {
   background-image: url(../img/header.jpg);
   background-size: cover; }
+
+.reviewSubmited {
+  display: none; }
 
 /*# sourceMappingURL=materialize.css.map */

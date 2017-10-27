@@ -18,9 +18,8 @@
         <!-- Dropdown Structure -->
         <ul id="dropdown1" class="dropdown-content">
             <li><a href="index.html">Home</a></li>
-            <li><a href="recipe.html">Recipe</a></li>
+            <li><a href="addRecipe.html">Add Recipe</a></li>
             <!-- <li class="divider"></li> -->
-            <li><a href="ingredient.html">Ingredients</a></li>
         </ul>
         <nav class="grey darken-3" role="navigation">
             <div class="nav-wrapper container">
@@ -36,9 +35,7 @@
                 </form> -->
                 <ul class="right hide-on-med-and-down">
                     <!-- Dropdown Trigger -->
-                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">menu</i><i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a href=""><i class="material-icons">notifications</i></a></li>
-                    <li><a href=""><i class="material-icons">star</i></a></li>
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">menu</i></a></li>
                     <li><a href=""><i class="material-icons">account_circle</i></a></li>
                 </ul>
             </div>
@@ -47,8 +44,7 @@
 
     <ul id="nav-mobile" class="side-nav">
         <li><a href="index.html">Home</a></li>
-        <li><a href="recipe.html">Recipe</a></li>
-        <li><a href="ingredient.html">Ingredients</a></li>
+        <li><a href="addRecipe.html">Add Recipe</a></li>
     </ul>
 
 
@@ -127,19 +123,19 @@
             <section class="section_review-form">
                 <div class="row">
                     <!-- add fieldset/legend -->
-                    <form id="createReviewForm" class="col s12">
+                    <form id="createReviewForm" action="" method="post" class="col s12">
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input data-table="user" name="fullName" placeholder="Richard Feynman" id="createReviewName" type="text" class="validate">
+                                <input data-table="user" name="fullName" id="createReviewName" type="text" class="validate">
                                 <label for="createReviewName">Full Name</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12 m8">
-                                <i class="material-icons">rate_review</i>
+                                <i class="material-icons prefix">rate_review</i>
                                 <textarea data-table="review" name="text" id="createReviewText" class="materialize-textarea"></textarea>
-                                <label for="createReviewText"></label>
+                                <label for="createReviewText">Review Text</label>
 
                             </div>
                             <div class=" col s12 m4" id="createReviewRating">
@@ -174,43 +170,33 @@
                         </div>
                     </form>
                 </div>
+      <!-- Review submitted div -->
+                <div class=" reviewSubmited col s12 m7">
+                  <h2 class="header">Review Submitted</h2>
+                  <div class="card horizontal">
+                    <div class="card-image">
+                      <img src="./img/pepper.jpeg">
+                    </div>
+                    <div class="card-stacked">
+                      <div class="card-content">
+                        <p id="reviewResponse"> </p>
+                      </div>
+                      <div class="card-action">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
             </section>
+
             <div class="icon-block">
                 <h2 class="center  light-blue-text "><i class="material-icons large">message</i></h2>
                 <h2 class="center ">Read Reviews</h2>
             </div>
             <article class="section_reviews-read">
-                <div class="row">
-                    <div class="col s12 m6 l4">
-                        <div class="card-panel light-blue darken-3">
-                            <span class="white-text"><i>I am a very simple card. I am good at containing small bits of information.
-         I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-     </i></span>
-                            <h5 class="section_review-author white-text">Sam Harrison</h5><br>
-                            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                            <a class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">delete</i></a>
-                        </div>
-                    </div>
-                    <div class="col s12 m6 l4">
-                        <div class="card-panel light-blue darken-3">
-                            <span class="white-text"><i>I am a very simple card. I am good at containing small bits of information.
-         I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-     </i></span>
-                            <h5 class="section_review-author white-text">Joe Harrison</h5><br>
-                            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                            <a class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">delete</i></a>
-                        </div>
-                    </div>
-                    <div class="col s12 m6 l4">
-                        <div class="card-panel light-blue darken-3">
-                            <span class="white-text"><i>I am a very simple card. I am good at containing small bits of information.
-         I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-     </i></span>
-                            <h5 class="section_review-author white-text">Ralph Harrison</h5><br>
-                            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                            <a class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">delete</i></a>
-                        </div>
-                    </div>
+                <div id="reviewsDiv" class="row">
+
+                  <!-- Content is dynamically loaded -->
                 </div>
             </article>
 
@@ -239,7 +225,7 @@
         <div class="footer-copyright ">
             <div class="container ">
                 <p>
-                    Made by K. Anderson, All Rights Reserved</p>
+                    Made by K. Anderson & T. Torres, All Rights Reserved</p>
             </div>
         </div>
     </footer>
@@ -247,7 +233,31 @@
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
     <script src="js/bin/materialize.js "></script>
-    <script src="js-custom/recipe.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+
+  <script id="reviewRecipeTemplate" type="text/x-handlebars-template">
+  {{#each review}}
+    <div class="col s12 m6 l4">
+        <div class="card-panel light-blue darken-3">
+            <span class="white-text"><i>
+                      {{text}}
+            </i></span>
+            <div id="{{reviewId}}" class="starRating">
+                {{#compare rating ">=" 1}} <i class="material-icons">star</i> {{/compare}} {{#compare rating ">=" 2}}<i class="material-icons">star</i> {{/compare}} {{#compare rating ">=" 3}} <i class="material-icons">star</i> {{/compare}}
+                {{#compare rating ">=" 4}}
+                <i class="material-icons">star</i> {{/compare}}
+            </div>
+            <h5 class="section_review-author white-text">{{user_name}}</h5><br>
+            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">delete</i></a>
+        </div>
+    </div>
+    {{/each}}
+</script>
+
+<script src="js-custom/recipe.js "></script>
+<script src="js-custom/script.js "></script>
+
 
 </body>
 
