@@ -18,9 +18,8 @@
         <!-- Dropdown Structure -->
         <ul id="dropdown1" class="dropdown-content">
             <li><a href="index.html">Home</a></li>
-            <li><a href="recipe.html">Recipe</a></li>
+            <li><a href="addRecipe.html">Add Recipe</a></li>
             <!-- <li class="divider"></li> -->
-            <li><a href="ingredient.html">Ingredients</a></li>
         </ul>
         <nav class="grey darken-3" role="navigation">
             <div class="nav-wrapper container">
@@ -36,9 +35,7 @@
                 </form> -->
                 <ul class="right hide-on-med-and-down">
                     <!-- Dropdown Trigger -->
-                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">menu</i><i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a href=""><i class="material-icons">notifications</i></a></li>
-                    <li><a href=""><i class="material-icons">star</i></a></li>
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">menu</i></a></li>
                     <li><a href=""><i class="material-icons">account_circle</i></a></li>
                 </ul>
             </div>
@@ -47,8 +44,7 @@
 
     <ul id="nav-mobile" class="side-nav">
         <li><a href="index.html">Home</a></li>
-        <li><a href="recipe.html">Recipe</a></li>
-        <li><a href="ingredient.html">Ingredients</a></li>
+        <li><a href="addRecipe.html">Add Recipe</a></li>
     </ul>
 
     <div class="parallax fullscreen background">
@@ -76,35 +72,8 @@
     <main role="main" class="main">
         <div class="container">
             <section>
-                <div class="row">
-                    <article>
-                        <div class="col s12 m6">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="img/beefRibs.jpeg">
-                                    <span class="card-title">Apple Wood Smoked Beef Ribs</span>
-                                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                                </div>
-                                <div class="card-content">
-                                    <p>Low and Slow.....using apple wood to smoke at about 200derees .......doesn't get much better than this.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article>
-                        <div class="col s12 m6">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="img/beefRibs.jpeg">
-                                    <span class="card-title">Apple Wood Smoked Beef Ribs</span>
-                                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                                </div>
-                                <div class="card-content">
-                                    <p>Low and Slow.....using apple wood to smoke at about 200derees .......doesn't get much better than this.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
+                <div id="featuredIndexRecipes" class="row">
+        <!-- Featured Recipes are dynamically added -->
                 </div>
             </section>
 
@@ -143,7 +112,6 @@
                         <div class="icon-block ">
                             <h2 class="center  light-blue-text "><i class="material-icons large">new_releases</i></h2>
                             <h5 class="center ">Under Construction...</h5>
-
                             <p class="light "></p>
                         </div>
                     </div>
@@ -181,6 +149,28 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
     <script src="js/bin/materialize.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+
+    <!-- Feature Recipes -->
+        <script id="featuredRecipeIndexTemplate" type="text/x-handlebars-template">
+            {{#each recipe}}
+        <article>
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{recipeImg}}">
+                        <span class="card-title">{{recipeName}}</span>
+                        <a data-id="{{recipedId}}" href="./recipe.html" class="getRecipe btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                    </div>
+                    <div class="card-content">
+                        <p>{{recipeDescription}}</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        {{/each}}
+    </script>
+
+<!-- Bottom Index Recipes -->
     <script id="recipeIndexTemplate" type="text/x-handlebars-template">
         {{#each recipe}}
         <article>
@@ -200,7 +190,7 @@
                             <p>{{recipeDescription}}</p>
                         </div>
                         <div class="card-action">
-                            <a href="recipe.html" class="waves-effect waves-light btn right"><i class="material-icons left"><i class="material-icons">remove_red_eye</i></i>recipe</a>
+                            <a data-id="{{recipedId}}" href="recipe.html" class="getRecipe waves-effect waves-light btn right"><i class="material-icons left"><i class="material-icons">remove_red_eye</i></i>recipe</a>
                         </div>
                     </div>
                 </div>
@@ -208,6 +198,9 @@
         </article>
         {{/each}}
     </script>
+
+
+
     <script src="js-custom/script.js">
     </script>
 
