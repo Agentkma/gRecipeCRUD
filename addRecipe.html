@@ -47,7 +47,7 @@
                 <article>
                     <div class="row">
                         <h2 class="center-align">Create a Recipe!</h2>
-                        <form id="addRecipeForm" class="col s12">
+                        <form action="" method="post"id="addRecipeForm" class="col s12">
                             <fieldset>
                                 <h5>Basic Info</h5>
                                 <div class="row">
@@ -194,9 +194,7 @@
     </footer>
 
     <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/bin/materialize.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+
     <script id="addIngTemplate" type="text/x-handlebars-template">
 
         <div class="row addEachIngDiv">
@@ -249,7 +247,11 @@
             </div>
         </div>
     </script>
-    <script src="js-custom/addRecipe.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/bin/materialize.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+    <!-- <script src="js-custom/script.js"></script> -->
+    <script  type="module" src="js-custom/addRecipe.js"></script>
 
 </body>
 

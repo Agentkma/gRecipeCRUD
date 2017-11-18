@@ -1,5 +1,9 @@
+import * as modules from './modules.js';
 "use strict";
+
 $(document).ready(function() {
+
+
   /* MATERIALIZE UTILITIES  *****************************************************************************************************************************************************/
   // TODO  CAN these materialize utilities be called with a function in all js pages?
   $(".button-collapse").sideNav({
@@ -100,26 +104,7 @@ $(document).ready(function() {
 
   /* AJAX  *****************************************************************************************************************************************************/
 
-  // settings
-  //
-  // var settings = {
-  //   "async": true,
-  //   "crossDomain": true,
-  //   "url": "https://shielded-oasis-62403.herokuapp.com/",
-  //   "method": "POST",
-  //   "headers": {
-  //     "content-type": "application/json",
-  //     "cache-control": "no-cache",
-  //     "postman-token": "f5a6b99f-9ebc-4b78-8a5a-6cdd06815a73"
-  //   },
-  //   "processData": false,
-  //   "data": `${daTa}`
-  // }
 
-  //
-  // $.ajax(settings).done(function (response) {
-  //   console.log(response);
-  // });
 
   /* EVENT LISTENERS  *****************************************************************************************************************************************************/
   $getRecipe.click(() => {
@@ -132,59 +117,93 @@ $(document).ready(function() {
 }); // end of document ready
 
 /* SHARED FUNCTIONS/VARS *****************************************************************************************************************************************************/
-Handlebars.registerHelper("compare", function(
-  lvalue,
-  operator,
-  rvalue,
-  options
-) {
-  if (arguments.length < 3)
-    throw new Error("Handlerbars Helper 'compare' needs 2 parameters");
 
-  // var operator = options.hash ? option.hash.operator : ">=";
-
-  var operators = {
-    "==": function(l, r) {
-      return l == r;
-    },
-    "===": function(l, r) {
-      return l === r;
-    },
-    "!=": function(l, r) {
-      return l != r;
-    },
-    "<": function(l, r) {
-      return l < r;
-    },
-    ">": function(l, r) {
-      return l > r;
-    },
-    "<=": function(l, r) {
-      return l <= r;
-    },
-    ">=": function(l, r) {
-      return l >= r;
-    },
-    typeof: function(l, r) {
-      return typeof l == r;
-    }
-  };
-
-  if (!operators[operator])
-    throw new Error(
-      "Handlerbars Helper 'compare' doesn't know the operator " + operator
-    );
-
-  var result = operators[operator](lvalue, rvalue);
-
-  if (result) {
-    //true
-    return options.fn(this);
-  } else {
-    //false
-    return options.inverse(this);
-  }
-});
-
-// heroku DB url
-const dbUrl = "https://shielded-oasis-62403.herokuapp.com/";
+// // heroku DB url
+// const dbUrl = "https://shielded-oasis-62403.herokuapp.com/";
+//
+// const httpHeaders = { 'Content-Type' : 'application/json', 'Accept-Charset' : 'utf-8', 'Accept' : 'application/json' };
+// let myHeaders = new Headers(httpHeaders);
+//
+//
+// function fetchGetRequest (){
+//     const fetchInit = { method: 'GET',
+//                    headers: myHeaders,
+//                    mode: 'cors',
+//                    cache: 'default' };
+//     const dataRequest = async () => {
+//         const response = await fetch(dbUrl,fetchInit);
+//         const json = await response.json();
+//         return json;
+//     };
+//     return dataRequest();
+// }
+//
+// function fetchPostRequest (data){
+//     const fetchInit = { method: 'POST',
+//            headers: myHeaders,
+//            mode: 'cors',
+//            cache: 'default',
+//            body: data
+//        };
+//    const dataPost = async () => {
+//        const response = await fetch(dbUrl,fetchInit);
+//        const json = await response.json();
+//        return json;
+//    };
+//    return dataPost();
+// }
+//
+//
+// Handlebars.registerHelper("compare", function(
+//       lvalue,
+//       operator,
+//       rvalue,
+//       options
+//     ) {
+//           if (arguments.length < 3)
+//             throw new Error("Handlerbars Helper 'compare' needs 2 parameters");
+//
+//           // var operator = options.hash ? option.hash.operator : ">=";
+//
+//           var operators = {
+//             "==": function(l, r) {
+//               return l == r;
+//             },
+//             "===": function(l, r) {
+//               return l === r;
+//             },
+//             "!=": function(l, r) {
+//               return l != r;
+//             },
+//             "<": function(l, r) {
+//               return l < r;
+//             },
+//             ">": function(l, r) {
+//               return l > r;
+//             },
+//             "<=": function(l, r) {
+//               return l <= r;
+//             },
+//             ">=": function(l, r) {
+//               return l >= r;
+//             },
+//             typeof: function(l, r) {
+//               return typeof l == r;
+//             }
+//           };
+//
+//           if (!operators[operator])
+//             throw new Error(
+//               "Handlerbars Helper 'compare' doesn't know the operator " + operator
+//             );
+//
+//           var result = operators[operator](lvalue, rvalue);
+//
+//           if (result) {
+//             //true
+//             return options.fn(this);
+//           } else {
+//             //false
+//             return options.inverse(this);
+//           }
+// });

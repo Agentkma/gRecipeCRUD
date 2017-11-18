@@ -1,9 +1,13 @@
+import { dbUrl,
+fetchGetRequest,
+fetchPostRequest} from './modules.js';
+
 $(document).ready(function() {
   "use strict";
 
   /* MATERIALIZE UTILITIES  *****************************************************************************************************************************************************/
   $(".button-collapse").sideNav({
-    closeOnClick: true
+    closeOnClick: true,
   });
   $("select").material_select();
   $(".parallax").parallax();
@@ -19,14 +23,14 @@ $(document).ready(function() {
   const $addRecipeFile = $("#addRecipeFile");
   const $addIngredientDiv = $("#addIngredientDiv");
   const $addIngBtn = $("#addIngBtn");
-  const $createNewIngredient = $(".createNewIngredient");
+  // const $createNewIngredient = $(".createNewIngredient");
   const $addStepDiv = $("#addStepDiv");
   const $addStepBtn = $(".addStepBtn");
-  const $childrenAddStepDiv = $("#addStepDiv > .addEachStepDiv");
-  const $addEachStepDiv = $(".addEachStepDiv");
-  const $addRecipeStep = $("#addRecipeStep");
-  const $addRecipeStepInput = $("#addRecipeStepInput");
-  const $addRecipeStepDiv = $("#addRecipeStepDiv");
+  // const $childrenAddStepDiv = $("#addStepDiv > .addEachStepDiv");
+  // const $addEachStepDiv = $(".addEachStepDiv");
+  // const $addRecipeStep = $("#addRecipeStep");
+  // const $addRecipeStepInput = $("#addRecipeStepInput");
+  // const $addRecipeStepDiv = $("#addRecipeStepDiv");
 
   let $deleteItem = $(".close");
   let createRecipeData = {};
@@ -74,11 +78,13 @@ $(document).ready(function() {
   // add Ingredient Input to Form
   function createNewIng() {
     //grab template
+
     const source = $("#addIngTemplate").html();
     //ready handlebars...by loading source/template
+
     const template = Handlebars.compile(source);
     let idIncrNum = $addIngredientDiv.length;
-    // console.log(idIncrNum)
+
     const data = { id: idIncrNum };
     const html = template(data);
     $addIngredientDiv.append(html);
@@ -91,6 +97,7 @@ $(document).ready(function() {
     //grab template
     const source = $("#addStepTemplate").html();
     //ready handlebars...by loading source/template
+
     const template = Handlebars.compile(source);
     let idIncrNum = $addStepDiv.length;
     // console.log(idIncrNum)
@@ -119,11 +126,44 @@ $(document).ready(function() {
   /* EVENT LISTENERS  *****************************************************************************************************************************************************/
   $addRecipeForm.submit(event => {
     event.preventDefault();
-    createRecipeObject();
-    //TODO create function to send recipe object to server....still need to fix POST route on server though
+    let recipeObject = createRecipeObject();
+    //TODO create function to send recipe object to
+    let testRecipe = {
+        "title": "Jersey Dogs",
+        "recipeDescription": "Best Hot Dogs Ever",
+        "file": "url/image.jpeg",
+        "personName": "Jim Jones",
+        "step": [
+            {
+                "order": 1,
+                "stepDescription": "cook hot dogs"
+            },
+            {
+                "order": 2,
+                "stepDescription": "serve"
+            }
+        ],
+        "ingredient": [
+            {
+                "ingredientName": "hot dog",
+                "amount": 8,
+                "unit": "ounces"
+            },
+            {
+                "ingredientName": "bun",
+                "amount": 10,
+                "unit": "ounces"
+            }
+
+        ]
+    }
+    let response = fetchPostRequest (testRecipe,'recipe');
+    // show reponse in UI
+    console.log(response);
   });
 
   $addIngBtn.click(() => {
+      console.log('test new ing click')
     createNewIng();
     $("select").material_select();
   });
@@ -143,4 +183,3 @@ $(document).ready(function() {
 
   /* FUNCTION CALLS *****************************************************************************************************************************************************/
 });
-// });
